@@ -1,0 +1,25 @@
+{
+  "name": "openstory-ui",
+  "version": "1.0.0",
+  "description": "OpenStory - Interactive chat-based game platform",
+  "private": true,
+  "workspaces": [
+    "client",
+    "server"
+  ],
+  "scripts": {
+    "install:all": "npm install && cd client && npm install && cd ../server && npm install",
+    "client": "cd client && npm run dev",
+    "server": "cd server && npm run dev",
+    "build:client": "cd client && npm run build",
+    "build:server": "cd server && npm run build",
+    "test": "npm run test:server && npm run test:client",
+    "test:server": "cd server && npm test",
+    "test:client": "cd client && npm test",
+    "start": "cd server && npm start"
+  },
+  "keywords": ["chat", "games", "ai", "openai"],
+  "author": "",
+  "license": "MIT"
+}
+

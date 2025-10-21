@@ -1,0 +1,32 @@
+{
+  "compilerOptions": {
+    /* Language and Environment */
+    "target": "ES2020",                    // Target modern JavaScript
+    "lib": ["ES2020", "DOM", "DOM.Iterable"], // Browser APIs available
+    "jsx": "react-jsx",                    // React JSX transformation
+    "module": "ESNext",                    // ES modules
+    "moduleResolution": "bundler",         // Vite uses bundler resolution
+    
+    /* Type Checking */
+    "strict": true,                        // Enable all strict type checking
+    "esModuleInterop": true,              // Better compatibility
+    "skipLibCheck": true,                 // Skip type checking of declaration files
+    "forceConsistentCasingInFileNames": true,  // Enforce consistent file naming
+    "allowImportingTsExtensions": true,   // Allow .ts/.tsx imports
+    "resolveJsonModule": true,            // Allow importing .json files
+    "isolatedModules": true,              // Required for Vite
+    "noEmit": true,                       // Vite handles emission
+    
+    /* Interop Constraints */
+    "allowSyntheticDefaultImports": true, // Allow default imports
+    
+    /* Path Mapping */
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["src/*"]                    // Alias @ to src directory
+    }
+  },
+  "include": ["src"],                     // Include all files in src/
+  "exclude": ["node_modules", "dist"]     // Exclude these
+}
+
