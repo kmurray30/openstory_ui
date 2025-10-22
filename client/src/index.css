@@ -11,9 +11,9 @@
 
 /* Custom global styles */
 @layer base {
-  /* Set default font and colors */
+  /* Set default font and colors - Dark & Mystical Theme */
   body {
-    @apply bg-gray-50 text-gray-900;
+    @apply bg-dark-50 text-gray-100;
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
       'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
       sans-serif;
@@ -23,43 +23,44 @@
 
   /* Improve heading appearance */
   h1, h2, h3, h4, h5, h6 {
-    @apply font-bold;
+    @apply font-bold text-gray-50;
   }
 }
 
 /* Custom component classes */
 @layer components {
-  /* Button styles */
+  /* Button styles - Dark & Mystical */
   .btn {
     @apply px-4 py-2 rounded-lg font-medium transition-all duration-200;
-    @apply focus:outline-none focus:ring-2 focus:ring-offset-2;
+    @apply focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-dark-50;
   }
 
   .btn-primary {
-    @apply btn bg-primary-600 text-white hover:bg-primary-700;
+    @apply btn bg-primary-600 text-white hover:bg-primary-700 shadow-lg shadow-primary-900/50;
     @apply focus:ring-primary-500;
   }
 
   .btn-secondary {
-    @apply btn bg-gray-200 text-gray-800 hover:bg-gray-300;
-    @apply focus:ring-gray-400;
+    @apply btn bg-dark-200 text-gray-200 hover:bg-dark-300 border border-dark-400;
+    @apply focus:ring-dark-400;
   }
 
-  /* Card styles */
+  /* Card styles - Dark with mystical glow */
   .card {
-    @apply bg-white rounded-xl shadow-md overflow-hidden;
+    @apply bg-dark-100 rounded-xl shadow-xl border border-dark-200 overflow-hidden;
+    @apply hover:border-primary-900 transition-colors duration-300;
   }
 
-  /* Input styles */
+  /* Input styles - Dark theme */
   .input {
-    @apply w-full px-4 py-2 border border-gray-300 rounded-lg;
-    @apply focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent;
+    @apply w-full px-4 py-2 border border-dark-300 rounded-lg bg-dark-100 text-gray-100;
+    @apply placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent;
   }
 }
 
 /* Custom utility classes */
 @layer utilities {
-  /* Scrollbar styling for chat messages */
+  /* Scrollbar styling for chat messages - Dark theme */
   .scrollbar-thin::-webkit-scrollbar {
     width: 6px;
   }
@@ -69,12 +70,12 @@
   }
 
   .scrollbar-thin::-webkit-scrollbar-thumb {
-    background: #cbd5e1;
+    background: #52525b;
     border-radius: 3px;
   }
 
   .scrollbar-thin::-webkit-scrollbar-thumb:hover {
-    background: #94a3b8;
+    background: #7e22ce;
   }
 }
 

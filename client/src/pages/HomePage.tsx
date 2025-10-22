@@ -59,14 +59,14 @@ export default function HomePage() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-primary-50 to-purple-50">
+    <div className="min-h-screen bg-gradient-to-br from-dark-50 via-dark-100 to-primary-950">
       {/* Header */}
-      <header className="bg-white shadow-sm">
+      <header className="bg-dark-100/80 backdrop-blur-sm border-b border-primary-900/30 shadow-lg shadow-primary-900/20">
         <div className="container mx-auto px-4 py-6">
-          <h1 className="text-4xl font-bold text-primary-600">
+          <h1 className="text-4xl font-bold bg-gradient-to-r from-primary-400 via-primary-500 to-accent-500 bg-clip-text text-transparent">
             OpenStory
           </h1>
-          <p className="text-gray-600 mt-2">
+          <p className="text-gray-400 mt-2">
             Choose your adventure and start your interactive story
           </p>
         </div>
@@ -83,9 +83,9 @@ export default function HomePage() {
 
         {/* Error state */}
         {error && !loading && (
-          <div className="max-w-md mx-auto bg-red-50 border border-red-200 rounded-lg p-6 text-center">
+          <div className="max-w-md mx-auto bg-red-950/50 border border-red-800 rounded-lg p-6 text-center backdrop-blur-sm">
             <svg
-              className="w-12 h-12 text-red-500 mx-auto mb-3"
+              className="w-12 h-12 text-red-400 mx-auto mb-3"
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"
@@ -97,7 +97,7 @@ export default function HomePage() {
                 d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
               />
             </svg>
-            <p className="text-red-800 font-medium mb-3">{error}</p>
+            <p className="text-red-200 font-medium mb-3">{error}</p>
             <button onClick={loadGames} className="btn-primary">
               Try Again
             </button>
@@ -120,7 +120,7 @@ export default function HomePage() {
         {/* Empty state */}
         {!loading && !error && games.length === 0 && (
           <div className="text-center py-12">
-            <p className="text-gray-600 text-lg">
+            <p className="text-gray-400 text-lg">
               No games available yet. Check back soon!
             </p>
           </div>
@@ -128,8 +128,10 @@ export default function HomePage() {
       </main>
 
       {/* Footer */}
-      <footer className="mt-12 py-6 text-center text-gray-500 text-sm">
-        <p>OpenStory - AI-Powered Interactive Stories</p>
+      <footer className="mt-12 py-6 text-center text-gray-600 text-sm border-t border-primary-900/20">
+        <p className="bg-gradient-to-r from-primary-400 to-accent-500 bg-clip-text text-transparent font-medium">
+          OpenStory - AI-Powered Interactive Stories
+        </p>
       </footer>
     </div>
   );

@@ -138,7 +138,7 @@ export default function ChatPage() {
   // Loading state
   if (loading) {
     return (
-      <div className="min-h-screen bg-gray-50 flex items-center justify-center">
+      <div className="min-h-screen bg-gradient-to-br from-dark-50 via-dark-100 to-primary-950 flex items-center justify-center">
         <LoadingSpinner size="large" text="Loading chat..." />
       </div>
     );
@@ -147,10 +147,10 @@ export default function ChatPage() {
   // Error state
   if (error && messages.length === 0) {
     return (
-      <div className="min-h-screen bg-gray-50 flex items-center justify-center p-4">
-        <div className="max-w-md bg-white rounded-lg shadow-lg p-8 text-center">
+      <div className="min-h-screen bg-gradient-to-br from-dark-50 via-dark-100 to-primary-950 flex items-center justify-center p-4">
+        <div className="max-w-md bg-dark-100 border border-dark-200 rounded-lg shadow-2xl p-8 text-center">
           <svg
-            className="w-16 h-16 text-red-500 mx-auto mb-4"
+            className="w-16 h-16 text-red-400 mx-auto mb-4"
             fill="none"
             stroke="currentColor"
             viewBox="0 0 24 24"
@@ -162,7 +162,7 @@ export default function ChatPage() {
               d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
             />
           </svg>
-          <p className="text-gray-800 font-medium mb-4">{error}</p>
+          <p className="text-gray-200 font-medium mb-4">{error}</p>
           <button onClick={handleBackClick} className="btn-primary">
             Back to Home
           </button>
@@ -172,19 +172,19 @@ export default function ChatPage() {
   }
 
   return (
-    <div className="flex flex-col h-screen bg-gray-50">
+    <div className="flex flex-col h-screen bg-gradient-to-br from-dark-50 via-dark-100 to-primary-950">
       {/* Header */}
-      <header className="bg-white border-b border-gray-200 shadow-sm">
+      <header className="bg-dark-100/80 backdrop-blur-sm border-b border-primary-900/30 shadow-lg">
         <div className="container mx-auto px-4 py-4 flex items-center justify-between">
           {/* Back button and game name */}
           <div className="flex items-center gap-4">
             <button
               onClick={handleBackClick}
-              className="p-2 hover:bg-gray-100 rounded-lg transition-colors"
+              className="p-2 hover:bg-dark-200 rounded-lg transition-colors border border-dark-300"
               aria-label="Back to home"
             >
               <svg
-                className="w-6 h-6 text-gray-600"
+                className="w-6 h-6 text-gray-400"
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
@@ -197,13 +197,15 @@ export default function ChatPage() {
                 />
               </svg>
             </button>
-            <h1 className="text-2xl font-bold text-gray-900">{gameName}</h1>
+            <h1 className="text-2xl font-bold bg-gradient-to-r from-primary-400 to-accent-500 bg-clip-text text-transparent">
+              {gameName}
+            </h1>
           </div>
 
           {/* Status indicator */}
           <div className="flex items-center gap-2">
-            <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse" />
-            <span className="text-sm text-gray-600">Online</span>
+            <div className="w-2 h-2 bg-primary-500 rounded-full animate-pulse shadow-lg shadow-primary-500/50" />
+            <span className="text-sm text-gray-400">Online</span>
           </div>
         </div>
       </header>
@@ -214,7 +216,7 @@ export default function ChatPage() {
         {messages.length === 0 && (
           <div className="flex flex-col items-center justify-center h-full text-center">
             <svg
-              className="w-20 h-20 text-gray-300 mb-4"
+              className="w-20 h-20 text-primary-900/50 mb-4"
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"
@@ -226,7 +228,7 @@ export default function ChatPage() {
                 d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"
               />
             </svg>
-            <p className="text-gray-600 text-lg mb-2">Start your adventure</p>
+            <p className="text-gray-300 text-lg mb-2">Start your adventure</p>
             <p className="text-gray-500 text-sm">
               Send a message to begin your story
             </p>
@@ -243,11 +245,11 @@ export default function ChatPage() {
             {/* Loading indicator while AI is responding */}
             {sending && (
               <div className="flex justify-start mb-4">
-                <div className="bg-white rounded-2xl px-4 py-3 shadow-sm">
+                <div className="bg-dark-200 border border-dark-300 rounded-2xl px-4 py-3 shadow-lg">
                   <div className="flex gap-2">
-                    <div className="w-2 h-2 bg-gray-400 rounded-full animate-bounce" />
-                    <div className="w-2 h-2 bg-gray-400 rounded-full animate-bounce delay-100" />
-                    <div className="w-2 h-2 bg-gray-400 rounded-full animate-bounce delay-200" />
+                    <div className="w-2 h-2 bg-primary-500 rounded-full animate-bounce" />
+                    <div className="w-2 h-2 bg-primary-500 rounded-full animate-bounce delay-100" />
+                    <div className="w-2 h-2 bg-primary-500 rounded-full animate-bounce delay-200" />
                   </div>
                 </div>
               </div>
@@ -261,15 +263,15 @@ export default function ChatPage() {
 
       {/* Error banner (if error occurs during chat) */}
       {error && messages.length > 0 && (
-        <div className="bg-red-50 border-t border-red-200 px-4 py-3">
+        <div className="bg-red-950/50 border-t border-red-800 px-4 py-3">
           <div className="container mx-auto max-w-4xl">
-            <p className="text-red-800 text-sm">{error}</p>
+            <p className="text-red-200 text-sm">{error}</p>
           </div>
         </div>
       )}
 
       {/* Input area */}
-      <footer className="bg-white border-t border-gray-200 shadow-lg">
+      <footer className="bg-dark-100/80 backdrop-blur-sm border-t border-primary-900/30 shadow-2xl">
         <div className="container mx-auto px-4 py-4">
           <form onSubmit={handleSendMessage} className="max-w-4xl mx-auto">
             <div className="flex gap-3">

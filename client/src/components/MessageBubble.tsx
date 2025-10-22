@@ -27,16 +27,16 @@ export default function MessageBubble({ message }: MessageBubbleProps) {
     >
       <div
         className={`
-          max-w-[75%] rounded-2xl px-4 py-3 shadow-sm
+          max-w-[75%] rounded-2xl px-4 py-3 shadow-lg
           ${
             isUser
-              ? 'bg-primary-600 text-white rounded-br-sm'  // User messages: purple, aligned right
-              : 'bg-white text-gray-900 rounded-bl-sm'      // Assistant messages: white, aligned left
+              ? 'bg-gradient-to-br from-primary-600 to-primary-700 text-white rounded-br-sm shadow-primary-900/50'  // User messages: purple gradient
+              : 'bg-dark-200 text-gray-100 rounded-bl-sm border border-dark-300'      // Assistant messages: dark
           }
         `}
       >
         {/* Message content */}
-        <p className="text-sm md:text-base whitespace-pre-wrap break-words">
+        <p className="text-sm md:text-base whitespace-pre-wrap break-words leading-relaxed">
           {message.content}
         </p>
 

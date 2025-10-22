@@ -16,7 +16,7 @@ export default function GameCard({ game, onClick }: GameCardProps) {
   return (
     <div
       onClick={onClick}
-      className="card cursor-pointer transform transition-all duration-200 hover:scale-105 hover:shadow-xl"
+      className="card cursor-pointer transform transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-primary-900/50 group"
       role="button"
       tabIndex={0}
       onKeyDown={(e) => {
@@ -27,30 +27,31 @@ export default function GameCard({ game, onClick }: GameCardProps) {
         }
       }}
     >
-      {/* Game thumbnail image */}
-      <div className="h-48 overflow-hidden bg-gray-200">
+      {/* Game thumbnail image with mystical overlay */}
+      <div className="h-48 overflow-hidden bg-dark-200 relative">
         <img
           src={game.thumbnailUrl}
           alt={game.name}
-          className="w-full h-full object-cover"
+          className="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity duration-300"
           loading="lazy"
         />
+        <div className="absolute inset-0 bg-gradient-to-t from-dark-100 via-transparent to-transparent" />
       </div>
 
       {/* Game info */}
       <div className="p-5">
         {/* Game title */}
-        <h3 className="text-xl font-bold text-gray-900 mb-2">
+        <h3 className="text-xl font-bold text-gray-50 mb-2 group-hover:text-primary-400 transition-colors">
           {game.name}
         </h3>
 
         {/* Game description */}
-        <p className="text-gray-600 text-sm line-clamp-3">
+        <p className="text-gray-400 text-sm line-clamp-3 leading-relaxed">
           {game.description}
         </p>
 
         {/* Call to action */}
-        <div className="mt-4 flex items-center text-primary-600 font-medium">
+        <div className="mt-4 flex items-center text-primary-500 font-medium group-hover:text-accent-500 transition-colors">
           <span>Start Adventure</span>
           <svg
             className="w-5 h-5 ml-2 transform group-hover:translate-x-1 transition-transform"
