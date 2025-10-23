@@ -27,15 +27,15 @@ export default function GameCard({ game, onClick }: GameCardProps) {
         }
       }}
     >
-      {/* Game thumbnail image with mystical overlay */}
-      <div className="h-48 overflow-hidden bg-dark-200 relative">
+      {/* Game thumbnail image with overlay */}
+      <div className="h-48 overflow-hidden bg-slate-700 relative">
         <img
           src={game.thumbnailUrl}
           alt={game.name}
           className="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity duration-300"
           loading="lazy"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-dark-100 via-transparent to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-slate-800 via-transparent to-transparent" />
       </div>
 
       {/* Game info */}
@@ -46,12 +46,12 @@ export default function GameCard({ game, onClick }: GameCardProps) {
         </h3>
 
         {/* Game description */}
-        <p className="text-gray-400 text-sm line-clamp-3 leading-relaxed">
+        <p className="text-slate-400 text-sm line-clamp-3 leading-relaxed">
           {game.description}
         </p>
 
         {/* Call to action */}
-        <div className="mt-4 flex items-center text-primary-500 font-medium group-hover:text-accent-500 transition-colors">
+        <div className="mt-4 flex items-center text-primary-400 font-medium group-hover:text-accent-400 transition-colors">
           <span>Start Adventure</span>
           <svg
             className="w-5 h-5 ml-2 transform group-hover:translate-x-1 transition-transform"

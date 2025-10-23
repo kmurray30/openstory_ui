@@ -8,6 +8,8 @@
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Game } from '../../../shared/types';
+import background from '../../assets/background.png';
+import logo from '../../assets/openstory_vector.png';
 import GameCard from '../components/GameCard';
 import LoadingSpinner from '../components/LoadingSpinner';
 import { ApiClientError, fetchGames } from '../services/api';
@@ -59,16 +61,31 @@ export default function HomePage() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-dark-50 via-dark-100 to-primary-950">
-      {/* Header */}
-      <header className="bg-dark-100/80 backdrop-blur-sm border-b border-primary-900/30 shadow-lg shadow-primary-900/20">
+    <div className="min-h-screen relative">
+      {/* Background image */}
+      <div 
+        className="fixed inset-0 bg-cover bg-center bg-no-repeat"
+        style={{ backgroundImage: `url(${background})` }}
+      />
+      
+      {/* Translucent frame overlay - more opaque at edges, clear in center */}
+      <div 
+        className="fixed inset-0"
+        style={{
+          background: 'radial-gradient(circle at center, rgba(51, 65, 85, 0.3) 0%, rgba(51, 65, 85, 0.85) 100%)'
+        }}
+      />
+
+      {/* Content wrapper */}
+      <div className="relative z-10 min-h-screen">
+        {/* Header - Custom Navy */}
+        <header className="bg-header border-b-2 border-slate-800 shadow-lg">
         <div className="container mx-auto px-4 py-6">
-          <h1 className="text-4xl font-bold bg-gradient-to-r from-primary-400 via-primary-500 to-accent-500 bg-clip-text text-transparent">
-            OpenStory
-          </h1>
-          <p className="text-gray-400 mt-2">
-            Choose your adventure and start your interactive story
-          </p>
+          <img 
+            src={logo} 
+            alt="OpenStory" 
+            className="h-24"
+          />
         </div>
       </header>
 
@@ -127,12 +144,13 @@ export default function HomePage() {
         )}
       </main>
 
-      {/* Footer */}
-      <footer className="mt-12 py-6 text-center text-gray-600 text-sm border-t border-primary-900/20">
-        <p className="bg-gradient-to-r from-primary-400 to-accent-500 bg-clip-text text-transparent font-medium">
-          OpenStory - AI-Powered Interactive Stories
-        </p>
-      </footer>
+        {/* Footer */}
+        <footer className="mt-12 py-6 text-center text-sm border-t border-slate-700">
+          <p className="text-slate-500">
+            OpenStory - AI-Powered Interactive Stories
+          </p>
+        </footer>
+      </div>
     </div>
   );
 }

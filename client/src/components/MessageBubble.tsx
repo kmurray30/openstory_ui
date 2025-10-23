@@ -30,8 +30,8 @@ export default function MessageBubble({ message }: MessageBubbleProps) {
           max-w-[75%] rounded-2xl px-4 py-3 shadow-lg
           ${
             isUser
-              ? 'bg-gradient-to-br from-primary-600 to-primary-700 text-white rounded-br-sm shadow-primary-900/50'  // User messages: purple gradient
-              : 'bg-dark-200 text-gray-100 rounded-bl-sm border border-dark-300'      // Assistant messages: dark
+              ? 'bg-gradient-to-br from-primary-600 to-primary-700 text-white rounded-br-sm shadow-primary-900/50'  // User messages: blue gradient
+              : 'bg-slate-800 text-gray-100 rounded-bl-sm border border-slate-700'      // Assistant messages: grey-blue
           }
         `}
       >
@@ -44,7 +44,7 @@ export default function MessageBubble({ message }: MessageBubbleProps) {
         <p
           className={`
             text-xs mt-1
-            ${isUser ? 'text-primary-200' : 'text-gray-500'}
+            ${isUser ? 'text-primary-200' : 'text-slate-500'}
           `}
         >
           {formatTime(message.timestamp)}

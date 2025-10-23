@@ -15,46 +15,51 @@ export default {
   
   theme: {
     extend: {
-      // Custom colors for the OpenStory theme - Dark & Mystical
+      // Custom colors for the OpenStory theme - Blue Scale
       colors: {
-        // Deep mystical purple/violet palette
+        // Custom header color
+        header: '#13181d',
+        
+        // Navy to light blue palette
         primary: {
-          50: '#faf5ff',
-          100: '#f3e8ff',
-          200: '#e9d5ff',
-          300: '#d8b4fe',
-          400: '#c084fc',
-          500: '#a855f7',   // Vibrant mystical purple
-          600: '#9333ea',
-          700: '#7e22ce',
-          800: '#6b21a8',
-          900: '#581c87',
+          50: '#f0f9ff',
+          100: '#e0f2fe',
+          200: '#bae6fd',
+          300: '#7dd3fc',
+          400: '#38bdf8',
+          500: '#0ea5e9',   // Sky blue
+          600: '#0284c7',
+          700: '#0369a1',
+          800: '#075985',   // Deep blue
+          900: '#0c4a6e',   // Navy
+          950: '#082f49',   // Darkest navy
         },
-        // Accent gold/amber for mystical highlights
+        // Accent cyan/teal
         accent: {
-          50: '#fffbeb',
-          100: '#fef3c7',
-          200: '#fde68a',
-          300: '#fcd34d',
-          400: '#fbbf24',
-          500: '#f59e0b',   // Warm gold
-          600: '#d97706',
-          700: '#b45309',
-          800: '#92400e',
-          900: '#78350f',
+          50: '#ecfeff',
+          100: '#cffafe',
+          200: '#a5f3fc',
+          300: '#67e8f9',
+          400: '#22d3ee',
+          500: '#06b6d4',   // Cyan
+          600: '#0891b2',
+          700: '#0e7490',
+          800: '#155e75',
+          900: '#164e63',
         },
-        // Dark background palette
-        dark: {
-          50: '#18181b',    // Lightest dark
-          100: '#27272a',
-          200: '#3f3f46',
-          300: '#52525b',
-          400: '#71717a',
-          500: '#a1a1aa',
-          600: '#d4d4d8',
-          700: '#e4e4e7',
-          800: '#f4f4f5',
-          900: '#fafafa',   // Almost white
+        // Grey-blue background palette
+        slate: {
+          50: '#f8fafc',
+          100: '#f1f5f9',
+          200: '#e2e8f0',
+          300: '#cbd5e1',
+          400: '#94a3b8',
+          500: '#64748b',   // Mid grey-blue
+          600: '#475569',
+          700: '#334155',
+          800: '#1e293b',   // Dark grey-blue
+          900: '#0f172a',   // Darkest grey-blue
+          950: '#020617',
         },
       },
       

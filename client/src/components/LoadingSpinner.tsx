@@ -19,16 +19,16 @@ export default function LoadingSpinner({ size = 'medium', text }: LoadingSpinner
 
   return (
     <div className="flex flex-col items-center justify-center gap-3">
-      {/* Animated spinning circle with mystical glow */}
+      {/* Animated spinning circle with blue glow */}
       <div
-        className={`${sizeClasses[size]} animate-spin rounded-full border-4 border-dark-300 border-t-primary-500 shadow-lg shadow-primary-900/50`}
+        className={`${sizeClasses[size]} animate-spin rounded-full border-4 border-slate-700 border-t-primary-500 shadow-lg shadow-primary-900/50`}
         role="status"
         aria-label="Loading"
       />
       
       {/* Optional loading text */}
       {text && (
-        <p className="text-gray-400 text-sm">{text}</p>
+        <p className="text-slate-400 text-sm">{text}</p>
       )}
     </div>
   );
