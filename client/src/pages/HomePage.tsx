@@ -8,8 +8,11 @@
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Game } from '../../../shared/types';
+import adventureThumb from '../../assets/adventure_game_thumbnail.png';
 import background from '../../assets/background.png';
+import detectiveThumb from '../../assets/detective_game_thumbnail.png';
 import logo from '../../assets/openstory_vector.png';
+import spaceThumb from '../../assets/space_game_thumbnail.png';
 import GameCard from '../components/GameCard';
 import LoadingSpinner from '../components/LoadingSpinner';
 import { ApiClientError, fetchGames } from '../services/api';
@@ -22,6 +25,13 @@ export default function HomePage() {
   const [games, setGames] = useState<Game[]>([]);          // List of available games
   const [loading, setLoading] = useState(true);             // Loading state
   const [error, setError] = useState<string | null>(null); // Error message
+
+  // Thumbnail mapping for local images
+  const thumbnailMap: Record<string, string> = {
+    'fantasy-quest': adventureThumb,
+    'detective-noir': detectiveThumb,
+    'space-explorer': spaceThumb,
+  };
 
   // Load games when component mounts
   useEffect(() => {
@@ -38,7 +48,14 @@ export default function HomePage() {
 
       // Call API to get games
       const gamesData = await fetchGames();
-      setGames(gamesData);
+      
+      // Replace thumbnail URLs with local images
+      const gamesWithLocalThumbs = gamesData.map(game => ({
+        ...game,
+        thumbnailUrl: thumbnailMap[game.id] || game.thumbnailUrl,
+      }));
+      
+      setGames(gamesWithLocalThumbs);
     } catch (err) {
       // Handle errors
       if (err instanceof ApiClientError) {
@@ -146,7 +163,7 @@ export default function HomePage() {
 
         {/* Footer */}
         <footer className="mt-12 py-6 text-center text-sm border-t border-slate-700">
-          <p className="text-slate-500">
+          <p className="text-slate-300">
             OpenStory - AI-Powered Interactive Stories
           </p>
         </footer>

@@ -8,8 +8,11 @@
 import { useEffect, useRef, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { Message } from '../../../shared/types';
+import adventureThumb from '../../assets/adventure_game_thumbnail.png';
 import background from '../../assets/background.png';
+import detectiveThumb from '../../assets/detective_game_thumbnail.png';
 import logo from '../../assets/openstory_vector.png';
+import spaceThumb from '../../assets/space_game_thumbnail.png';
 import LoadingSpinner from '../components/LoadingSpinner';
 import MessageBubble from '../components/MessageBubble';
 import {
@@ -30,10 +33,18 @@ export default function ChatPage() {
   // State management
   const [messages, setMessages] = useState<Message[]>([]);          // Chat messages
   const [gameName, setGameName] = useState<string>('');             // Name of current game
+  const [gameBackground, setGameBackground] = useState<string>(background); // Background image for this game
   const [inputValue, setInputValue] = useState('');                 // Text input value
   const [loading, setLoading] = useState(true);                     // Initial loading
   const [sending, setSending] = useState(false);                    // Sending message
   const [error, setError] = useState<string | null>(null);          // Error message
+
+  // Thumbnail mapping for game backgrounds
+  const thumbnailMap: Record<string, string> = {
+    'fantasy-quest': adventureThumb,
+    'detective-noir': detectiveThumb,
+    'space-explorer': spaceThumb,
+  };
 
   // Load game info and chat history when component mounts
   useEffect(() => {
@@ -72,6 +83,9 @@ export default function ChatPage() {
       }
 
       setGameName(game.name);
+      
+      // Set the background image for this game
+      setGameBackground(thumbnailMap[gameId] || background);
 
       // Load chat history for this game
       const chatHistory = await fetchChatHistory(gameId);
@@ -143,7 +157,10 @@ export default function ChatPage() {
       <div className="min-h-screen relative flex items-center justify-center">
         <div 
           className="fixed inset-0 bg-cover bg-center bg-no-repeat"
-          style={{ backgroundImage: `url(${background})` }}
+          style={{ 
+            backgroundImage: `url(${gameBackground})`,
+            filter: 'grayscale(50%)'
+          }}
         />
         <div 
           className="fixed inset-0"
@@ -164,7 +181,10 @@ export default function ChatPage() {
       <div className="min-h-screen relative flex items-center justify-center p-4">
         <div 
           className="fixed inset-0 bg-cover bg-center bg-no-repeat"
-          style={{ backgroundImage: `url(${background})` }}
+          style={{ 
+            backgroundImage: `url(${gameBackground})`,
+            filter: 'grayscale(50%)'
+          }}
         />
         <div 
           className="fixed inset-0"
@@ -199,10 +219,13 @@ export default function ChatPage() {
 
   return (
     <div className="flex flex-col h-screen relative">
-      {/* Background image */}
+      {/* Background image - game specific (50% desaturated) */}
       <div 
         className="fixed inset-0 bg-cover bg-center bg-no-repeat"
-        style={{ backgroundImage: `url(${background})` }}
+        style={{ 
+          backgroundImage: `url(${gameBackground})`,
+          filter: 'grayscale(50%)'
+        }}
       />
       
       {/* Translucent frame overlay - more opaque at edges, clear in center */}
